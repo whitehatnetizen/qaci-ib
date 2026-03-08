@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why QACI is worth it</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lora:wght@700&display=swap" rel="stylesheet">
+<style>
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #faf9f7;
+  --ink: #1e1c19;
+  --ink-mid: #4a4540;
+  --ink-light: #8a8278;
+  --accent: #7a5c3a;
+  --accent-soft: #c8a882;
+  --rule: #ddd8d0;
+  --block-bg: #f3f0eb;
+  --font: 'Lora', Georgia, serif;
+}
+
+html {
+  font-size: 18px;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+body {
+  font-family: var(--font);
+  line-height: 1.85;
+  padding: 0 1.5rem;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Layout ── */
+
+.page {
+  max-width: 660px;
+  margin: 0 auto;
+  padding: 5rem 0 7rem;
+}
+
+/* ── Title ── */
+
+.page-title {
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+
+.title-rule {
+  width: 3rem;
+  height: 3px;
+  background: var(--accent);
+  border: none;
+  margin: 1.4rem 0 3.5rem;
+}
+
+/* ── Sections ── */
+
+section {
+  margin-bottom: 4rem;
+}
+
+section + section {
+  padding-top: 3.5rem;
+  border-top: 1px solid var(--rule);
+}
+
+h2 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.6rem;
+}
+
+/* ── Body text ── */
+
+p {
+  margin-bottom: 1.4rem;
+  color: var(--ink);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* ── Lead paragraph ── */
+
+.lead {
+  font-size: 1.08rem;
+  font-style: italic;
+  color: var(--ink-mid);
+  border-left: 3px solid var(--accent-soft);
+  padding-left: 1.2rem;
+  margin-bottom: 0;
+}
+
+/* ── Assessment blocks ── */
+
+.assessment-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 1.6rem 0;
+}
+
+.assessment-item {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: 0 1.2rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--rule);
+}
+
+.assessment-item:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.assessment-label {
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding-top: 0.1rem;
+  line-height: 1.5;
+}
+
+.assessment-body {
+  font-size: 0.97rem;
+  line-height: 1.75;
+  color: var(--ink);
+}
+
+.assessment-body p {
+  margin-bottom: 0;
+  font-size: inherit;
+}
+
+/* ── Comparison table ── */
+
+.comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin: 1.8rem 0;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.comparison-col {
+  padding: 1.4rem 1.2rem;
+}
+
+.comparison-col:first-child {
+  border-right: 1px solid var(--rule);
+  background: var(--bg);
+}
+
+.comparison-col:last-child {
+  background: var(--block-bg);
+}
+
+.comparison-head {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  margin-bottom: 1rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.comparison-col:last-child .comparison-head {
+  color: var(--accent);
+}
+
+.comparison-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.comparison-col li {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--ink-mid);
+  padding: 0.3rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.comparison-col li:last-child {
+  border-bottom: none;
+}
+
+.comparison-col:last-child li {
+  color: var(--ink);
+}
+
+/* ── IB pillars list ── */
+
+.pillar-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.4rem 0;
+}
+
+.pillar-list li {
+  padding: 1.1rem 0;
+  border-top: 1px solid var(--rule);
+  font-size: 0.97rem;
+  line-height: 1.75;
+}
+
+.pillar-list li:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+/* ── Closing ── */
+
+.closing {
+  font-size: 1.05rem;
+}
+
+.closing p {
+  margin-bottom: 1.2rem;
+}
+
+.closing .kicker {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--ink-mid);
+}
+
+/* ── Mobile ── */
+
+@media (max-width: 560px) {
+  html { font-size: 16px; }
+
+  .comparison {
+    grid-template-columns: 1fr;
+  }
+  .comparison-col:first-child {
+    border-right: none;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .assessment-item {
+    grid-template-columns: 1fr;
+    gap: 0.3rem;
+  }
+
+  .assessment-label {
+    font-size: 0.8rem;
+  }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <h1 class="page-title">Why QACI<br>is worth it</h1>
+  <hr class="title-rule">
+
+  <!-- Short version -->
+  <section>
+    <h2>The short version</h2>
+    <p class="lead">QACI runs a completely different curriculum to every other state school in Brisbane — the International Baccalaureate — and that difference matters.</p>
+    <p style="margin-top:1.4rem;">It's harder, more independent, and taken more seriously by universities around the world than the standard Queensland Certificate of Education. If you're interested in literature and international relations, the IB suits you well. And QACI is where you can do it.</p>
+  </section>
+
+  <!-- What makes the IB different -->
+  <section>
+    <h2>What makes the IB different from QCE</h2>
+    <p>The Queensland Certificate of Education is what most students do. It's fine. The IB is what students do when they want to be stretched in a way that QCE can't offer.</p>
+
+    <ul class="pillar-list">
+      <li><strong>You study six subjects</strong>, split between Higher Level and Standard Level. Higher Level subjects go deep — the workload and the thinking required are closer to first-year university than to high school. You're expected to analyse, argue, and show original thought, not just demonstrate that you've absorbed the content.</li>
+      <li><strong>You write a 4,000-word independent research paper</strong> called the Extended Essay. You choose the topic, develop a research question, and work through it over several months with a supervisor. Universities genuinely care about this. It shows you can drive your own thinking without someone telling you exactly what to do.</li>
+      <li><strong>You take Theory of Knowledge</strong> — a philosophy course built into the IB that most students don't expect to love and end up finding one of the most interesting things they've ever studied. It asks: how do we actually know things? What makes a claim valid in science vs history vs the arts? Where does bias come from? For someone interested in geopolitics, where almost every "fact" is contested and where propaganda and framing shape reality, it connects directly to the questions you're already asking.</li>
+      <li><strong>The qualification is internationally recognised.</strong> Australian universities accept it, but so do universities in the UK, Europe, the US, and Canada. If you ever want to study at the London School of Economics, Sciences Po in Paris, or Georgetown in Washington — all of which have serious international relations programs — an IB score gets you in the door in a way that a QCE ATAR doesn't, at least not as cleanly.</li>
+    </ul>
+  </section>
+
+  <!-- The subjects -->
+  <section>
+    <h2>The subjects that suit you specifically</h2>
+
+    <p>The IB has a subject called <strong>Language A: Literature</strong> at Higher Level. Here's what it actually looks like compared to what you're doing now.</p>
+
+    <div class="comparison">
+      <div class="comparison-col">
+        <div class="comparison-head">QCE English &amp; Literature</div>
+        <ul>
+          <li>6–8 texts over two years</li>
+          <li>Mostly English-language, Australian or British tradition</li>
+          <li>Guided assessment tasks with prompts and word limits</li>
+          <li>Essays typically 800–1,000 words</li>
+          <li>External exam on texts you've already studied</li>
+          <li>Analysis prepared in advance</li>
+        </ul>
+      </div>
+      <div class="comparison-col">
+        <div class="comparison-head">IB HL Literature</div>
+        <ul>
+          <li>~13 texts over two years</li>
+          <li>Mandatory works in translation (Kafka, García Márquez, Chekhov, Flaubert…)</li>
+          <li>Four distinct assessment components</li>
+          <li>Formal essay with your own research question</li>
+          <li>Unseen analysis — texts you've never seen before</li>
+          <li>Sustained verbal argument in the Individual Oral</li>
+        </ul>
+      </div>
+    </div>
+
+    <p>The assessments are worth understanding in detail:</p>
+
+    <div class="assessment-grid">
+      <div class="assessment-item">
+        <div class="assessment-label">Paper 1</div>
+        <div class="assessment-body"><p>Unseen literary analysis. You walk into the exam with no preparation for the specific texts — given two short unseen passages (one prose, one poetry), you choose one and analyse it in depth. No memorised quotes. No prepared arguments. You read it, and you write. It's a direct test of whether you can actually think about literature.</p></div>
+      </div>
+      <div class="assessment-item">
+        <div class="assessment-label">Paper 2</div>
+        <div class="assessment-body"><p>Comparative essay under exam conditions, comparing two works you've studied in response to a question you haven't seen in advance. Cross-text comparison is built into the assessment, not an optional extra.</p></div>
+      </div>
+      <div class="assessment-item">
+        <div class="assessment-label">Individual Oral</div>
+        <div class="assessment-body"><p>A 15-minute recorded analysis where you take an extract from one of your texts, connect it to a global issue — power, identity, war, justice, colonialism — and extend that argument to a second work. You speak, you argue, you handle follow-up questions. It requires holding a sustained analytical argument verbally, which is genuinely different from writing one.</p></div>
+      </div>
+      <div class="assessment-item">
+        <div class="assessment-label">HL Essay</div>
+        <div class="assessment-body"><p>A 1,200 to 1,500 word formal essay on a work of your choice with a research question you develop yourself. The topic is yours. The argument is yours.</p></div>
+      </div>
+    </div>
+
+    <p>Every text in IB Literature is also studied through the lens of a global issue — you're constantly asking what the text reveals about power, or identity, or how language is used to shape reality. For someone whose other main interest is international relations, that frame connects the two subjects in ways that make both sharper.</p>
+
+    <p>For the geopolitics and diplomacy side, there are two strong options. <strong>Global Politics HL</strong> covers power, sovereignty, human rights, development, and peace and conflict through real case studies from current and recent history. One of its assessments — the Engagement Activity — asks you to connect political theory to a real issue you care about. Your existing interest in how the world works is an advantage going in. <strong>History HL</strong> goes deep on 20th-century conflict, authoritarian regimes, causes of war, and the post-war international order — more structured, but the analytical depth required is significant.</p>
+
+    <p>You'd pick one of those, not both. Either way, it feeds directly into international relations, diplomacy, or law at university level.</p>
+  </section>
+
+  <!-- Extended Essay -->
+  <section>
+    <h2>The Extended Essay, specifically</h2>
+    <p>Most high school assessments tell you exactly what to do: write 800 words on this topic, answer these three questions. The Extended Essay hands you a blank page and asks what you want to know, and why.</p>
+    <p>For someone interested in literature, you could write on a single author's treatment of power and language across multiple works, or on how a particular novel reflects the geopolitical moment it was written in. For someone interested in diplomacy, a Global Politics Extended Essay on a specific conflict, treaty, or international institution — interrogating why it succeeded or failed — is well within scope.</p>
+    <p>This ends up in your university application. It's evidence that you can think independently at a level most 17-year-olds aren't asked to.</p>
+  </section>
+
+  <!-- Harder -->
+  <section>
+    <h2>The honest version of "it's harder"</h2>
+    <p>The IB is a heavier workload than QCE. Students consistently say Year 12 especially is intense — you're managing six subjects, the Extended Essay, Theory of Knowledge essays, and CAS (community and creative activities) at the same time.</p>
+    <p>The difficulty is the point. University, particularly at the level you'd be aiming for with interests in international relations or literature, requires exactly this kind of self-management. The IB trains you to handle complexity and competing demands without falling apart. Students who finish it tend to find the first year of university significantly less overwhelming than their peers.</p>
+  </section>
+
+  <!-- What it leads to -->
+  <section>
+    <h2>What it could lead to</h2>
+    <p>A strong IB score opens doors at universities that a QCE ATAR alone doesn't, specifically in international programs. The combination of HL Literature and Global Politics (or History) is a natural pathway into diplomacy, international law, journalism covering world affairs, or academic research in politics or literature.</p>
+    <p>The paths are broad enough to leave options open while being specific enough to actually develop real expertise.</p>
+  </section>
+
+  <!-- One last thing -->
+  <section class="closing">
+    <h2>One last thing</h2>
+    <p>QACI is in Kelvin Grove. You already know where that is.</p>
+    <p>Going there means doing something harder and more interesting, close to home, with a cohort of students who chose to be there for similar reasons.</p>
+    <p class="kicker">That's worth something.</p>
+  </section>
+
+</div>
+</body>
+</html>
